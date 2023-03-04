@@ -11,18 +11,18 @@ public class Guess {
         int attemp = 0;
         int tryNum;
         Scanner scanner = new Scanner(System.in);
-        while (attemp<maxAttempts) {
+        while (attemp < maxAttempts) {
             tryNum = scanner.nextInt();
             attemp++;
-            if (tryNum>number) {
-                System.out.println("Мое число меньше! У тебя осталось "+ (maxAttempts-attemp) +" попыток");
-            }else if (tryNum<number) {
-                System.out.println("Мое число больше! У тебя осталось "+ (maxAttempts-attemp) +" попыток");
+            if (tryNum > number) {
+                System.out.println("Мое число меньше! У тебя осталось " + (maxAttempts - attemp) + " попыток");
+            } else if (tryNum < number) {
+                System.out.println("Мое число больше! У тебя осталось " + (maxAttempts - attemp) + " попыток");
             } else {
                 System.out.println("Ты угадал с " + attemp + " попытки");
                 break;
             }
         }
-        if (attemp==maxAttempts) System.out.println("Ты не угадал");
+        if (attemp == maxAttempts) System.out.println("Ты не угадал");
     }
 }
