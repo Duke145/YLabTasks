@@ -45,13 +45,12 @@ public class SequencesTest {
             sequences.h(i);
         }
 
-        // проверка метода i,
+        // проверка метода i
         for (int i : checkList) {
             sequences.i(i);
         }
 
-        // проверка метода j,
-        // быстрорастущая последовательность => при n>16 переполнение int
+        // проверка метода j
         for (int i : checkList) {
             sequences.j(i);
         }
