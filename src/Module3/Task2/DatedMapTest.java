@@ -22,6 +22,13 @@ public class DatedMapTest {
         System.out.println(map.getKeyLastInsertionDate("third"));
         map.put("first","asd");
         System.out.println(map.getKeyLastInsertionDate("first").getTime());
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        map.put("first","asdфвфыв");
+        System.out.println(map.getKeyLastInsertionDate("first").getTime());
 
     }
 }
