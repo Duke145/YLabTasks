@@ -4,10 +4,10 @@ import java.io.*;
 import java.sql.*;
 import javax.sql.DataSource;
 
-public class FileSortImpl implements FileSorter {
+public class FileSortImplWithoutBatch implements FileSorter {
     private DataSource dataSource;
 
-    public FileSortImpl(DataSource dataSource) {
+    public FileSortImplWithoutBatch(DataSource dataSource) {
         this.dataSource = dataSource;
     }
 
@@ -23,11 +23,12 @@ public class FileSortImpl implements FileSorter {
              FileReader fr = new FileReader(data);
              BufferedReader br = new BufferedReader(fr);
         ) {
+            //очистка базы перед повторным прогоном
+            statementGetResult.executeUpdate("delete FROM numbers");
             while ((tempLine = br.readLine()) != null) {
                 statement.setLong(1, Long.parseLong(tempLine));
-                statement.addBatch();
+                statement.executeUpdate();
             }
-            statement.executeBatch();
             ResultSet rs = statementGetResult.executeQuery(getSort);
             File sortedFile = new File(data.getName().replace(".txt", "_sorted.txt"));
             FileWriter fw = new FileWriter(sortedFile);
