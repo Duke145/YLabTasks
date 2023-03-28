@@ -6,6 +6,14 @@ public class Person {
   private String lastName;
   private String middleName;
 
+  @Override
+  public String toString() {
+    return id +
+            ";" + name +
+            ";" + lastName +
+            ";" + middleName;
+  }
+
   public Person() {
   }
 
