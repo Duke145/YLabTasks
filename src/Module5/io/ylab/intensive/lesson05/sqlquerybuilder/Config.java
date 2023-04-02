@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan("io.ylab.intensive.lesson05.sqlquerybuilder")
+@ComponentScan("Module5.io.ylab.intensive.lesson05.sqlquerybuilder")
 public class Config {
   
   @Bean
