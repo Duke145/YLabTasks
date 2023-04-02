@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Component
-public class SQLQueryBuilderImpl implements SQLQueryBuilder{
+public class SQLQueryBuilderImpl implements SQLQueryBuilder {
 
     private DataSource dataSource;
 
@@ -28,7 +28,7 @@ public class SQLQueryBuilderImpl implements SQLQueryBuilder{
             while (columns.next()) {
                 list.add(columns.getString("COLUMN_NAME"));
             }
-            if (list.size()==0) {
+            if (list.size() == 0) {
                 return null;
             } else {
                 StringBuilder stringBuilder = new StringBuilder();
@@ -36,7 +36,7 @@ public class SQLQueryBuilderImpl implements SQLQueryBuilder{
                 for (String elem : list) {
                     stringBuilder.append(elem).append(", ");
                 }
-                stringBuilder.setLength(stringBuilder.length()-2);
+                stringBuilder.setLength(stringBuilder.length() - 2);
                 stringBuilder.append(" FROM ").append(tableName);
                 return stringBuilder.toString();
             }
