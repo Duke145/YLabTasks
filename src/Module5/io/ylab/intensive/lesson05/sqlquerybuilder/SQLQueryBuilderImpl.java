@@ -52,7 +52,8 @@ public class SQLQueryBuilderImpl implements SQLQueryBuilder {
             DatabaseMetaData metaData = connection.getMetaData();
             String[] types = {"TABLE"};
             List<String> list = new LinkedList<>();
-            ResultSet tables = metaData.getTables(null, null, "%", types);
+            //ResultSet tables = metaData.getTables(null, null, "%", types);
+            ResultSet tables = metaData.getTables(null, null, null, null);
             while (tables.next()) {
                 list.add(tables.getString("TABLE_NAME"));
             }
